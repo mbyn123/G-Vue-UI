@@ -26,6 +26,10 @@
     </style>
     <!-- 默认按钮样式-->
     <style>
+      .icon{
+          width:1em ;
+          height:1em
+      }
         /*.g-button{*/
         /*   font-size:var(--font-size);*/
         /*    height:var(--button-height);*/
@@ -47,15 +51,12 @@
 </head>
 <body>
 <div id="app">
-  <g-button></g-button>
+    <g-button>按钮</g-button>
+  <g-button icon="thumbs-up">按钮</g-button>
+    <g-button icon="left" icon-position="right">按钮</g-button>
 </div>
+<!--引入vue-gulu组件-->
 <script src="./src/app.js"></script>
-<!--<script src="./node_modules/vue/dist/vue.min.js"></script>-->
-<!--<script src="button.js"></script>-->
-<!--<script>-->
-<!--    new Vue({-->
-<!--        el:'#app',-->
-<!--    })-->
-<!--</script>-->
+<script src="//at.alicdn.com/t/font_1444290_fa8ruq3a9j8.js"></script>
 </body>
 </html>
