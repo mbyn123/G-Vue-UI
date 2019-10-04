@@ -5,31 +5,34 @@
     <title>咕噜</title>
     <!-- 用户自定义样式 变量-->
     <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        html{
-            --button-height:32px;
-            --font-size:14px;
-            --button-bg:white;
-            --button-active-bg:#eee;
-            --border-radius:4px;
-            --color:#999;
-            --border-color:#999;
-            --border-color-hover:#666
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
         }
 
-        #app{
+        html {
+            --button-height: 32px;
+            --font-size: 14px;
+            --button-bg: white;
+            --button-active-bg: #eee;
+            --border-radius: 4px;
+            --color: #999;
+            --border-color: #999;
+            --border-color-hover: #666
+        }
+
+        #app {
             margin: 20px;
         }
-        body{
+
+        body {
             font-size: var(--font-size);
         }
     </style>
     <!-- 默认按钮样式-->
     <style>
-      .icon{
-          width:1em ;
-          height:1em
-      }
+
         /*.g-button{*/
         /*   font-size:var(--font-size);*/
         /*    height:var(--button-height);*/
@@ -52,8 +55,10 @@
 <body>
 <div id="app">
     <g-button>按钮</g-button>
-  <g-button icon="thumbs-up">按钮</g-button>
-    <g-button icon="left" icon-position="right">按钮</g-button>
+    <g-button icon="thumbs-up" icon-position="right">按钮</g-button>
+    <g-button icon="left" >按钮</g-button>
+    <g-icon name="download"></g-icon>
+<!--    <svg><use xlink:href="#i-left"></use></svg>-->
 </div>
 <!--引入vue-gulu组件-->
 <script src="./src/app.js"></script>

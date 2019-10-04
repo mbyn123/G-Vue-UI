@@ -1,6 +1,10 @@
 <template>
-    <button class="g-button" :class="[`icon-${iconPosition}`]">
-        <svg v-if="icon" class="icon"><use :xlink:href="`#i-${icon}`"></use></svg>
+    <button class="g-button" :class="[`icon-${iconPosition}`]"> <!--传参改变class的名称 来改变图标的位置-->
+        <!--传参改变icon的名称 切换
+        <svg v-if="icon" class="icon"><use :xlink:href="`#i-${icon}`"></use></svg>-->
+
+        <!--引入icon组件-->
+        <g-icon v-if="icon" :name="icon" class="icon"></g-icon>
         <div class="content">
             <slot></slot>
         </div>
@@ -9,7 +13,17 @@
 
 <script>
     export default {
-        props:['icon','iconPosition']
+        // props:['icon','iconPosition']
+        props:{
+            icon:{},
+            iconPosition:{//设置图标位置的默认值
+                type:String,
+                default:'left',
+                validate(value){
+                    return value === 'left' && value === 'right';
+                }
+            }
+        }
     }
 </script>
 
