@@ -6,7 +6,7 @@
     <!-- 用户自定义样式 变量-->
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
-        :root{
+        html{
             --button-height:32px;
             --font-size:14px;
             --button-bg:white;
@@ -26,35 +26,36 @@
     </style>
     <!-- 默认按钮样式-->
     <style>
-        .g-button{
-           font-size:var(--font-size);
-            height:var(--button-height);
-            padding: 0 1em;/* 宽度不写死*/
-            border:1px solid var(--border-color);
-            border-radius: var(--border-radius);
-            background: var(--button-bg);
-        }
-        .g-button:hover{
-           bordr-color: var(--border-color-hover)
-        }
-        .g-button:active{
-            background:var(--button-active-bg)
-        }
-        .g-button:focus{
-            outline:none
-        }
+        /*.g-button{*/
+        /*   font-size:var(--font-size);*/
+        /*    height:var(--button-height);*/
+        /*    padding: 0 1em;!* 宽度不写死*!*/
+        /*    border:1px solid var(--border-color);*/
+        /*    border-radius: var(--border-radius);*/
+        /*    background: var(--button-bg);*/
+        /*}*/
+        /*.g-button:hover{*/
+        /*   bordr-color: var(--border-color-hover)*/
+        /*}*/
+        /*.g-button:active{*/
+        /*    background:var(--button-active-bg)*/
+        /*}*/
+        /*.g-button:focus{*/
+        /*    outline:none*/
+        /*}*/
     </style>
 </head>
 <body>
 <div id="app">
   <g-button></g-button>
 </div>
-<script src="./node_modules/vue/dist/vue.min.js"></script>
-<script src="button.js"></script>
-<script>
-    new Vue({
-        el:'#app',
-    })
-</script>
+<script src="./src/app.js"></script>
+<!--<script src="./node_modules/vue/dist/vue.min.js"></script>-->
+<!--<script src="button.js"></script>-->
+<!--<script>-->
+<!--    new Vue({-->
+<!--        el:'#app',-->
+<!--    })-->
+<!--</script>-->
 </body>
 </html>
