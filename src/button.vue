@@ -1,10 +1,11 @@
 <template>
-    <button class="g-button" :class="[`icon-${iconPosition}`]"> <!--传参改变class的名称 来改变图标的位置-->
+    <button class="g-button" :class="[`icon-${iconPosition}`]" @click="$emit('click')"> <!--传参改变class的名称 来改变图标的位置-->
         <!--传参改变icon的名称 切换
         <svg v-if="icon" class="icon"><use :xlink:href="`#i-${icon}`"></use></svg>-->
 
         <!--引入icon组件-->
-        <g-icon v-if="icon" :name="icon" class="icon"></g-icon>
+        <g-icon v-if="icon && !loading" :name="icon " class="icon"></g-icon>
+        <g-icon name="loading" v-if="loading" class="loading icon"></g-icon>
         <div class="content">
             <slot></slot>
         </div>
@@ -14,12 +15,16 @@
 <script>
     export default {
         // props:['icon','iconPosition']
-        props:{
-            icon:{},
-            iconPosition:{//设置图标位置的默认值
-                type:String,
-                default:'left',
-                validate(value){
+        props: {
+            icon: {},//图标名称
+            loading:{//loading过渡动画
+                type:Boolean,
+                default: false
+            },
+            iconPosition: {//设置图标位置的默认值
+                type: String,
+                default: 'left',
+                validate(value) {
                     return value === 'left' && value === 'right';
                 }
             }
@@ -28,43 +33,64 @@
 </script>
 
 <style scoped lang="scss">
-    .g-button{
-        font-size:var(--font-size);
-        height:var(--button-height);
-        padding: 0 1em;/* 宽度不写死*/
-        border:1px solid var(--border-color);
+    @keyframes spin {
+        0%{transform: rotate(0deg)}
+        100%{transform: rotate(360deg)}
+    }
+    .g-button {
+        font-size: var(--font-size);
+        height: var(--button-height);
+        padding: 0 1em; /* 宽度不写死*/
+        border: 1px solid var(--border-color);
         border-radius: var(--border-radius);
         background: var(--button-bg);
         display: inline-flex;
         justify-content: center;
         align-items: center;
         vertical-align: middle;
-        &:hover{
+
+        &:hover {
             bordr-color: var(--border-color-hover)
         }
-        &:active{
-            background:var(--button-active-bg)
+
+        &:active {
+            background: var(--button-active-bg)
         }
-        &:focus{
-            outline:none
+
+        &:focus {
+            outline: none
         }
-        >.icon{
-            order:1
+
+        > .icon {
+            order: 1;
+            margin-right:.2em ;
+
         }
-        >.content{
-            order:2;
-            margin-left:.1rem;
+
+        > .content {
+            order: 2;
+
         }
-        &.icon-right{
-            >.icon{
-                order:2
+
+        &.icon-right {
+            > .icon {
+                order: 2;
+                margin-left: .2rem;
+                margin-right: 0em;
+
             }
-            >.content{
-                order:1;
-                margin-left: 0;
-                margin-right: .1rem;
+
+            > .content {
+                order: 1;
+
             }
         }
+    .loading{
+        animation: spin 1s linear infinite;
     }
+
+
+    }
+
 
 </style>

@@ -54,14 +54,15 @@
 </head>
 <body>
 <div id="app">
-    <g-button>按钮</g-button>
-    <g-button icon="thumbs-up" icon-position="right">按钮</g-button>
-    <g-button icon="left" >按钮</g-button>
+    <g-button :loading="loading1" @click="loading1=!loading1">按钮</g-button>
+    <g-button icon="thumbs-up" icon-position="right" :loading="loading2" @click="loading2=!loading2">按钮</g-button>
+    <g-button icon="left" :loading="loading3" @click="loading3=!loading3">按钮</g-button>
     <g-icon name="download"></g-icon>
 <!--    <svg><use xlink:href="#i-left"></use></svg>-->
 </div>
 <!--引入vue-gulu组件-->
 <script src="./src/app.js"></script>
-<script src="//at.alicdn.com/t/font_1444290_fa8ruq3a9j8.js"></script>
+<script src="//at.alicdn.com/t/font_1444290_fpdj7scrgrl.js"></script>
 </body>
 </html>
+
