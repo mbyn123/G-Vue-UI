@@ -6,7 +6,15 @@
 
 <script>
     export default {
-        name: "button-group"
+       mounted() {
+           for(let node of this.$el.children){
+               let name=node.nodeName.toLowerCase()//获取当前按钮集合中子节点标签名称
+               if(name !== 'button'){
+                   console.warn(`g-button-group的子元素应该全是g-button，但你写的是${name}`)
+               }
+
+           }
+       }
     }
 </script>
 
