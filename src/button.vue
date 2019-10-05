@@ -1,9 +1,6 @@
 <template>
     <button class="g-button" :class="[`icon-${iconPosition}`]" @click="$emit('click')"> <!--传参改变class的名称 来改变图标的位置-->
-        <!--传参改变icon的名称 切换
-        <svg v-if="icon" class="icon"><use :xlink:href="`#i-${icon}`"></use></svg>-->
-
-        <!--引入icon组件-->
+        <!--引入g-icon组件-->
         <g-icon v-if="icon && !loading" :name="icon " class="icon"></g-icon>
         <g-icon name="loading" v-if="loading" class="loading icon"></g-icon>
         <div class="content">
@@ -14,7 +11,6 @@
 
 <script>
     export default {
-        // props:['icon','iconPosition']
         props: {
             icon: {},//图标名称
             loading:{//loading过渡动画
