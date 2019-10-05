@@ -24,6 +24,9 @@
         vertical-align: middle;
         >.g-button{
             border-radius: 0;
+            &:not(:first-child){
+                margin-left: -1px; /*将除第一个按钮以外的按钮向左移动1px,解决边框重合的问题*/
+            }
             margin-left: -1px;
             &:first-child{
                 border-top-left-radius: var(--border-radius);
@@ -36,7 +39,7 @@
             &:hover{
                 border-color: var(--border-color-hover);
                 position: relative;
-                z-index: 1;
+                z-index: 1;/*按钮hover后 调整按钮的z-index 使其正常显示边框*/
             }
         }
     }
