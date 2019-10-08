@@ -10,7 +10,11 @@
 </template>
 
 <script>
+    import Icon from './icon'
     export default {
+        components:{
+            'g-icon':Icon
+        },
         props: {
             icon: {},//图标名称
             loading:{//loading过渡动画
@@ -44,49 +48,34 @@
         justify-content: center;
         align-items: center;
         vertical-align: middle;
-
         &:hover {
             bordr-color: var(--border-color-hover)
         }
-
         &:active {
             background: var(--button-active-bg)
         }
-
         &:focus {
             outline: none
         }
-
         > .icon {
             order: 1;
             margin-right:.2em ;
-
         }
-
         > .content {
             order: 2;
-
         }
-
         &.icon-right {
             > .icon {
                 order: 2;
                 margin-left: .2rem;
                 margin-right: 0em;
-
             }
-
             > .content {
                 order: 1;
-
             }
         }
-    .loading{
-        animation: spin 1s linear infinite;
+        .loading{
+            animation: spin 1s linear infinite;
+        }
     }
-
-
-    }
-
-
 </style>
