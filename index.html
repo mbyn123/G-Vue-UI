@@ -32,43 +32,32 @@
     </style>
     <!-- 默认按钮样式-->
     <style>
-
-        /*.g-button{*/
-        /*   font-size:var(--font-size);*/
-        /*    height:var(--button-height);*/
-        /*    padding: 0 1em;!* 宽度不写死*!*/
-        /*    border:1px solid var(--border-color);*/
-        /*    border-radius: var(--border-radius);*/
-        /*    background: var(--button-bg);*/
-        /*}*/
-        /*.g-button:hover{*/
-        /*   bordr-color: var(--border-color-hover)*/
-        /*}*/
-        /*.g-button:active{*/
-        /*    background:var(--button-active-bg)*/
-        /*}*/
-        /*.g-button:focus{*/
-        /*    outline:none*/
-        /*}*/
+        .box{
+            margin: 20px;
+        }
     </style>
 </head>
 <body>
 <div id="app">
-    <div>
+    <div class="box">
         <g-button :loading="loading1" @click="loading1=!loading1">按钮</g-button>
         <g-button icon="thumbs-up" icon-position="right" :loading="loading2" @click="loading2=!loading2">按钮</g-button>
-        <g-button icon="settings" :loading="loading3" @click="loading3=!loading3">按钮</g-button>
+        <g-button icon="setting" :loading="loading3" @click="loading3=!loading3">按钮</g-button>
         <g-icon name="download"></g-icon>
         <g-button-group>
             <g-button icon="left">上一页</g-button>
             <g-button>更多</g-button>
             <g-button icon="right">下一页</g-button>
         </g-button-group>
-        <div id="test"></div>
     </div>
-
-    <g-input></g-input>
-
+    <div class="box">
+    <g-input value="张三"></g-input>
+    <g-input value="禁用" disabled></g-input>
+    <g-input value="不能修改" readonly></g-input>
+    </div>
+    <div class="box">
+    <g-input value="张" error="姓名不能少于两个字"></g-input>
+    </div>
 </div>
 <!--引入vue-gulu组件-->
 <script src="./src/app.js"></script>
