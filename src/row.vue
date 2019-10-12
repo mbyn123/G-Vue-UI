@@ -30,7 +30,6 @@
                 }
             },
             rowClass() {
-                console.log('11111')
                 return [this.align && `align-${this.align}`]//短路运算符 如果align不存在就取后面的值
             }
         }
@@ -41,6 +40,7 @@
 <style scoped lang="scss">
     .row {
         display: flex;
+        flex-wrap: wrap;
         &.align-left{
             justify-content:flex-start
         }
