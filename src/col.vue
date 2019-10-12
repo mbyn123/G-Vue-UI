@@ -123,7 +123,7 @@
                 }
             }
         }
-        @media (min-width: 769px) and (max-width: 992px) {
+        @media (min-width: 769px)  {
             $class-perfix: col-zpc-;
             @for $n from 1 through 24 {
                 &.#{$class-perfix}#{$n} {
@@ -138,7 +138,7 @@
                 }
             }
         }
-        @media (min-width: 993px) and (max-width: 1200px) {
+        @media (min-width: 993px)  {
             $class-perfix: col-pc-;
             @for $n from 1 through 24 {
                 &.#{$class-perfix}#{$n} {
@@ -153,7 +153,7 @@
                 }
             }
         }
-        @media (max-width: 1201px) {
+        @media (min-width: 1201px) {
             $class-perfix: col-kpc-;
             @for $n from 1 through 24 {
                 &.#{$class-perfix}#{$n} {
