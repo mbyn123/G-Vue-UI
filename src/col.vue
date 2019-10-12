@@ -1,8 +1,5 @@
 <template>
-    <div class="col" :class="colClass"
-         :style="colStyle"
-    >
-
+    <div class="col" :class="colClass" :style="colStyle">
         <div style="border: 1px solid green;height: 100px">
             <slot></slot>
         </div>
@@ -18,25 +15,22 @@
             offset: {
                 type: [Number, String]
             },
-            gutter: {
-                type: [Number, String]
-            }
         },
         data() {
             return {
-                gutter: 0
+                gutter:0
             }
         },
         computed: {
-            colClass(){
-                let {span,offset}=this
-                return [`col-${span}`, offset && `offset-${offset}`]
+            colClass() {
+                let {span, offset} = this
+                return [`col-${span}`, offset && `offset-${offset}`]//短路运算符 如果offset不存在就取后面的值
             },
             colStyle() {
-               return{
-                   paddingLeft:this.gutter/2+'px',
-                   paddingRight:this.gutter/2+'px'
-               }
+                return {
+                    paddingLeft: this.gutter / 2 + 'px',
+                    paddingRight: this.gutter / 2 + 'px'
+                }
             }
 
         }
@@ -45,7 +39,6 @@
 
 <style scoped lang="scss">
     .col {
-
         $class-perfix: col-;
         @for $n from 1 through 24 {
             &.#{$class-perfix}#{$n} {
