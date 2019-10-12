@@ -20,6 +20,7 @@
         name: "G-input",
         components:{
             Icon
+
         },
         props: {
             value: {

@@ -4,12 +4,16 @@ import Button from './button'
 import Icon from './icon'
 import ButtongGroup from './button-group'
 import Input from './input'
+import Row from './row'
+import Col from './col'
 
 //注册全局组件
 Vue.component('g-button',Button)
 Vue.component('g-icon',Icon)
 Vue.component('g-button-group',ButtongGroup)
 Vue.component('g-input',Input)
+Vue.component('g-row',Row)
+Vue.component('g-col',Col)
 
 new Vue({
     el:'#app',

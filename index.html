@@ -38,7 +38,28 @@
     </style>
 </head>
 <body>
+<style>
+    .row{
+        display: flex;
+    }
+    .col{
+        height:100px;
+        width:50%;
+        background: #999999;
+        border: 1px solid red;
+
+    }
+</style>
 <div id="app">
+     <g-row>
+         <g-col span="4">1</g-col>
+         <g-col span="6">2</g-col>
+         <g-col span="9">3</g-col>
+     </g-row>
+    <g-row>
+        <g-col span="2">1</g-col>
+        <g-col span="22">2</g-col>
+    </g-row>
     <div class="box">
         <g-button :loading="loading1" @click="loading1=!loading1">按钮</g-button>
         <g-button icon="thumbs-up" icon-position="right" :loading="loading2" @click="loading2=!loading2">按钮</g-button>
