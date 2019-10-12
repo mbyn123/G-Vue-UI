@@ -27,23 +27,27 @@
             offset: {
                 type: [Number, String]
             },
-            phone: {
+            xs: {
                 type: Object,
                 validator
             },
-            ipad: {
+            sm: {
                 type: Object,
                 validator
             },
-            zpc: {
+            md: {
                 type: Object,
                 validator
             },
-            pc: {
+            lg: {
                 type: Object,
                 validator
             },
-            kpc: {
+            xl: {
+                type: Object,
+                validator
+            },
+            xxl: {
                 type: Object,
                 validator
             }
@@ -53,17 +57,31 @@
                 gutter: 0
             }
         },
+        methods:{
+            createClass(obj,str=''){
+                if(!obj){return[]}
+                let array=[]
+                if(obj.span){
+                    array.push(`col-${str}${obj.span}`)
+                }
+                if(obj.offset){
+                    array.push(`offset-${str}${obj.offset}`)
+                }
+                return array
+            }
+        },
         computed: {
             colClass() {
-                let {span, offset, phone, ipad, zpc, pc, kpc} = this
+                let {span, offset, xs, sm, md, lg, xl,xxl} = this
+                let createClass=this.createClass
                 return [
-                    span && `col-${span}`,
-                    offset && `offset-${offset}`,//短路运算符 如果offset不存在就取后面的值
-                    phone && `col-phone-${phone.span}`,
-                    ipad && `col-ipad-${ipad.span}`,
-                    zpc && `col-zpc-${zpc.span}`,
-                    pc && `col-pc-${pc.span}`,
-                    kpc && `col-kpc-${kpc.span}`
+                    createClass({span,offset}),
+                    createClass(xs,'xs-'),
+                    createClass(sm,'sm-'),
+                    createClass(md,'md-'),
+                    createClass(lg,'lg-'),
+                    createClass(xl,'xl-'),
+                    createClass(xxl,'xxl-'),
 
                 ]
             },
@@ -94,29 +112,29 @@
             }
         }
         @media (max-width: 576px) {
-            $class-perfix: col-phone-;
+            $class-perfix: col-xs-;
             @for $n from 1 through 24 {
                 &.#{$class-perfix}#{$n} {
                     width: ($n /24)*100%;
                 }
             }
 
-            $class-perfix: offset-phone-;
+            $class-perfix: offset-xs-;
             @for $n from 1 through 24 {
                 &.#{$class-perfix}#{$n} {
                     margin-left: ($n /24)*100%;
                 }
             }
         }
-        @media (min-width: 577px) and (max-width: 768px) {
-            $class-perfix: col-ipad-;
+        @media (min-width: 577px)  {
+            $class-perfix: col-sm-;
             @for $n from 1 through 24 {
                 &.#{$class-perfix}#{$n} {
                     width: ($n /24)*100%;
                 }
             }
 
-            $class-perfix: offset-ipad-;
+            $class-perfix: offset-sm-;
             @for $n from 1 through 24 {
                 &.#{$class-perfix}#{$n} {
                     margin-left: ($n /24)*100%;
@@ -124,14 +142,14 @@
             }
         }
         @media (min-width: 769px)  {
-            $class-perfix: col-zpc-;
+            $class-perfix: col-md-;
             @for $n from 1 through 24 {
                 &.#{$class-perfix}#{$n} {
                     width: ($n /24)*100%;
                 }
             }
 
-            $class-perfix: offset-zpc-;
+            $class-perfix: offset-md-;
             @for $n from 1 through 24 {
                 &.#{$class-perfix}#{$n} {
                     margin-left: ($n /24)*100%;
@@ -139,14 +157,14 @@
             }
         }
         @media (min-width: 993px)  {
-            $class-perfix: col-pc-;
+            $class-perfix: col-lg-;
             @for $n from 1 through 24 {
                 &.#{$class-perfix}#{$n} {
                     width: ($n /24)*100%;
                 }
             }
 
-            $class-perfix: offset-pc-;
+            $class-perfix: offset-lg-;
             @for $n from 1 through 24 {
                 &.#{$class-perfix}#{$n} {
                     margin-left: ($n /24)*100%;
@@ -154,14 +172,29 @@
             }
         }
         @media (min-width: 1201px) {
-            $class-perfix: col-kpc-;
+            $class-perfix: col-xl-;
             @for $n from 1 through 24 {
                 &.#{$class-perfix}#{$n} {
                     width: ($n /24)*100%;
                 }
             }
 
-            $class-perfix: offset-kpc-;
+            $class-perfix: offset-xl-;
+            @for $n from 1 through 24 {
+                &.#{$class-perfix}#{$n} {
+                    margin-left: ($n /24)*100%;
+                }
+            }
+        }
+        @media (min-width: 1601px) {
+            $class-perfix: col-xxl-;
+            @for $n from 1 through 24 {
+                &.#{$class-perfix}#{$n} {
+                    width: ($n /24)*100%;
+                }
+            }
+
+            $class-perfix: offset-xxl-;
             @for $n from 1 through 24 {
                 &.#{$class-perfix}#{$n} {
                     margin-left: ($n /24)*100%;
