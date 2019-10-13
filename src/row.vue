@@ -13,7 +13,7 @@
             align: {
                 type: String,
                 validator(value) {//设置传入的默认位置值 是否是这几个值
-                    return ['left', 'right', 'center'].includes(value)
+                    return ['left', 'right', 'center'].indexOf(value)>0
                 }
             }
         },

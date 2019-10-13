@@ -1,5 +1,5 @@
 <template>
-    <div class="toast" ref="toast">
+    <div class="toast" ref="toast" :class="toastClass">
         <slot v-if="!enadleHtml"></slot><!--不支持html书写提示信息-->
         <div v-else  v-html="$slots.default[0]"></div><!--支持html书写提示信息-->
         <div class="line" ref="line"></div>
@@ -16,37 +16,53 @@
             },
             autoCloseDelay:{//提示信息自动消失的时间
                 type:Number,
-                default:30
+                default:3
             },
             closeButton:{//提示消息中的点击的按钮
                 type:Object,
                 default(){
                     return{
                         text:'关闭',//按钮的默认名称
-                        callback:undefined
+                        callback:undefined//默认没有回调函数
                     }
                 }
             },
             enadleHtml:{//默认不支持提示信息使用自定义的html编写
                 type:Boolean,
                 default:false
+            },
+            position:{//设置toast出现的位置
+                type:String,
+                default:'top',
+                validator(value){
+                   return ['top','bottom','middle'].indexOf(value)>0
+                }
             }
 
         },
         mounted(){
-            if(this.autoClose){//5秒后自动从页面删除
-                setTimeout(()=>{
-                    this.close()
-                },this.autoCloseDelay*1000)
+            this.lineStyle()
+            this.setAutoClose()
+
+        },
+        computed:{
+            toastClass(){//获取用户传入的position位置值
+              return {[`position-${this.position}`]:true}
             }
-            this.ss()
         },
         methods:{
-            ss(){
+            lineStyle(){
                 this.$nextTick(()=>{//解决line无法获取父级元素高度的问题
                     this.$refs.line.style.height=`${this.$refs.toast.getBoundingClientRect().height}px`
                 })
 
+            },
+            setAutoClose(){
+                if(this.autoClose){//3秒后自动从页面删除
+                    setTimeout(()=>{
+                        this.close()
+                    },this.autoCloseDelay*1000)
+                }
             },
             close(){//将内容从页面删除
                 this.$el.remove()
@@ -76,9 +92,7 @@
         line-height: 1.8;
         min-height: $toast-height;
         position: fixed;
-        top: 0;
         left: 50%;
-        transform: translateX(-50%);
         display: flex;
         align-items: center;
         background: $toast-bg;
@@ -95,6 +109,19 @@
         .close{
             flex-shrink: 0;
         }
+        &.position-top{
+            top:0;
+            transform: translateX(-50%);
+        }
+        &.position-bottom{
+            bottom:0;
+            transform: translateX(-50%);
+        }
+        &.position-middle{
+            top:50%;
+            transform: translate(-50%,-50%);
+        }
+
     }
 
 </style>

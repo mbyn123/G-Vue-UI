@@ -42,6 +42,9 @@ new Vue({
         //调用toast组件,向组件中传入提示信息,和关闭按钮的名称以及点击按钮后的回调函数
         this.$toast('<a style="color: #F1453D" href="http://qq.com">hihihihihiihiihhhhhhhhhhhhhhhhhhhhhhh</a>',{
             enadleHtml:true,
+            position:'top',
+            autoClose:true,
+            autoCloseDelay:30,
             closeButton: {
                 text:'关闭55555555555',
                 callback(toast){
