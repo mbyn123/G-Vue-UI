@@ -22,9 +22,7 @@
             --border-color-hover: #ccc
         }
 
-        #app {
-            margin: 20px;
-        }
+
 
         body {
             font-size: var(--font-size);
@@ -35,84 +33,92 @@
         .box{
             margin: 20px;
         }
+        .demo{
+            min-height: 100px;
+            border:1px solid grey;
+        }
     </style>
 </head>
 <body>
-<style>
-
-</style>
 <div id="app">
-     <g-row>
-         <g-col span="4">1</g-col>
-         <g-col span="8" offset="2">2</g-col>
-         <g-col span="10">3</g-col>
-     </g-row>
-    <g-row >
-        <g-col span="24" :xs="{span:24}" :sm="{span:12,offset:0}" :md="{span:8}" :lg="{span:6}" :xl="{span:4}" :xxl="{span:2}">1</g-col>
-        <g-col span="24" :xs="{span:24}" :sm="{span:12,offset:0}" :md="{span:8}" :lg="{span:6}" :xl="{span:4}" :xxl="{span:2}">1</g-col>
-        <g-col span="24" :xs="{span:24}" :sm="{span:12,offset:0}" :md="{span:8}" :lg="{span:6}" :xl="{span:4}" :xxl="{span:2}">1</g-col>
-        <g-col span="24" :xs="{span:24}" :sm="{span:12,offset:0}" :md="{span:8}" :lg="{span:6}" :xl="{span:4}" :xxl="{span:2}">1</g-col>
-        <g-col span="24" :xs="{span:24}" :sm="{span:12,offset:0}" :md="{span:8}" :lg="{span:6}" :xl="{span:4}" :xxl="{span:2}">1</g-col>
-        <g-col span="24" :xs="{span:24}" :sm="{span:12,offset:0}" :md="{span:8}" :lg="{span:6}" :xl="{span:4}" :xxl="{span:2}">1</g-col>
-        <g-col span="24" :xs="{span:24}" :sm="{span:12,offset:0}" :md="{span:8}" :lg="{span:6}" :xl="{span:4}" :xxl="{span:2}">1</g-col>
-        <g-col span="24" :xs="{span:24}" :sm="{span:12,offset:0}" :md="{span:8}" :lg="{span:6}" :xl="{span:4}" :xxl="{span:2}">1</g-col>
-        <g-col span="24" :xs="{span:24}" :sm="{span:12,offset:0}" :md="{span:8}" :lg="{span:6}" :xl="{span:4}" :xxl="{span:2}">1</g-col>
-        <g-col span="24" :xs="{span:24}" :sm="{span:12,offset:0}" :md="{span:8}" :lg="{span:6}" :xl="{span:4}" :xxl="{span:2}">1</g-col>
-        <g-col span="24" :xs="{span:24}" :sm="{span:12,offset:0}" :md="{span:8}" :lg="{span:6}" :xl="{span:4}" :xxl="{span:2}">1</g-col>
-        <g-col span="24" :xs="{span:24}" :sm="{span:12,offset:0}" :md="{span:8}" :lg="{span:6}" :xl="{span:4}" :xxl="{span:2}">1</g-col>
+    <g-layout style="height:100vh">
+        <g-sider class="demo">sider</g-sider>
+        <g-layout>
+            <g-header class="demo">header</g-header>
+            <g-content class="demo">content</g-content>
+            <g-footer class="demo">footer</g-footer>
+        </g-layout>
+    </g-layout>
 
-
-    </g-row>
-    <g-row gutter="30">
-        <g-col span="4">
-            <g-row align="left">
-                <g-col>1</g-col>
-                <g-col>1</g-col>
-                <g-col>1</g-col>
-                <g-col>1</g-col>
-                <g-col>1</g-col>
-            </g-row>
-        </g-col>
-        <g-col span="20">
-            <g-row align="center">
-                <g-col>1</g-col>
-                <g-col>1</g-col>
-                <g-col>1</g-col>
-                <g-col>1</g-col>
-                <g-col>1</g-col>
-            </g-row>
-        </g-col>
-        <g-col span="20">
-            <g-row align="right">
-                <g-col>1</g-col>
-                <g-col>1</g-col>
-                <g-col>1</g-col>
-                <g-col>1</g-col>
-                <g-col>1</g-col>
-            </g-row>
-        </g-col>
-    </g-row>
-    <div class="box">
-        <g-button :loading="loading1" @click="loading1=!loading1">按钮</g-button>
-        <g-button icon="thumbs-up" icon-position="right" :loading="loading2" @click="loading2=!loading2">按钮</g-button>
-        <g-button icon="setting" :loading="loading3" @click="loading3=!loading3">按钮</g-button>
-        <g-icon name="download"></g-icon>
-        <g-button-group>
-            <g-button icon="left">上一页</g-button>
-            <g-button>更多</g-button>
-            <g-button icon="right">下一页</g-button>
-        </g-button-group>
-    </div>
-    <div class="box">
-    <g-input value="张三" @change="inputChange"></g-input>
-    <g-input v-model="message"></g-input>
-        <p>{{message}}</p>
-    <g-input value="禁用" disabled></g-input>
-    <g-input value="不能修改" readonly></g-input>
-    </div>
-    <div class="box">
-    <g-input value="张" error="姓名不能少于两个字"></g-input>
-    </div>
+<!--     <g-row>-->
+<!--         <g-col span="4">1</g-col>-->
+<!--         <g-col span="8" offset="2">2</g-col>-->
+<!--         <g-col span="10">3</g-col>-->
+<!--     </g-row>-->
+<!--    <g-row >-->
+<!--        <g-col span="24" :xs="{span:24}" :sm="{span:12,offset:0}" :md="{span:8}" :lg="{span:6}" :xl="{span:4}" :xxl="{span:2}">1</g-col>-->
+<!--        <g-col span="24" :xs="{span:24}" :sm="{span:12,offset:0}" :md="{span:8}" :lg="{span:6}" :xl="{span:4}" :xxl="{span:2}">1</g-col>-->
+<!--        <g-col span="24" :xs="{span:24}" :sm="{span:12,offset:0}" :md="{span:8}" :lg="{span:6}" :xl="{span:4}" :xxl="{span:2}">1</g-col>-->
+<!--        <g-col span="24" :xs="{span:24}" :sm="{span:12,offset:0}" :md="{span:8}" :lg="{span:6}" :xl="{span:4}" :xxl="{span:2}">1</g-col>-->
+<!--        <g-col span="24" :xs="{span:24}" :sm="{span:12,offset:0}" :md="{span:8}" :lg="{span:6}" :xl="{span:4}" :xxl="{span:2}">1</g-col>-->
+<!--        <g-col span="24" :xs="{span:24}" :sm="{span:12,offset:0}" :md="{span:8}" :lg="{span:6}" :xl="{span:4}" :xxl="{span:2}">1</g-col>-->
+<!--        <g-col span="24" :xs="{span:24}" :sm="{span:12,offset:0}" :md="{span:8}" :lg="{span:6}" :xl="{span:4}" :xxl="{span:2}">1</g-col>-->
+<!--        <g-col span="24" :xs="{span:24}" :sm="{span:12,offset:0}" :md="{span:8}" :lg="{span:6}" :xl="{span:4}" :xxl="{span:2}">1</g-col>-->
+<!--        <g-col span="24" :xs="{span:24}" :sm="{span:12,offset:0}" :md="{span:8}" :lg="{span:6}" :xl="{span:4}" :xxl="{span:2}">1</g-col>-->
+<!--        <g-col span="24" :xs="{span:24}" :sm="{span:12,offset:0}" :md="{span:8}" :lg="{span:6}" :xl="{span:4}" :xxl="{span:2}">1</g-col>-->
+<!--        <g-col span="24" :xs="{span:24}" :sm="{span:12,offset:0}" :md="{span:8}" :lg="{span:6}" :xl="{span:4}" :xxl="{span:2}">1</g-col>-->
+<!--        <g-col span="24" :xs="{span:24}" :sm="{span:12,offset:0}" :md="{span:8}" :lg="{span:6}" :xl="{span:4}" :xxl="{span:2}">1</g-col>-->
+<!--    </g-row>-->
+<!--    <g-row gutter="30">-->
+<!--        <g-col span="4">-->
+<!--            <g-row align="left">-->
+<!--                <g-col>1</g-col>-->
+<!--                <g-col>1</g-col>-->
+<!--                <g-col>1</g-col>-->
+<!--                <g-col>1</g-col>-->
+<!--                <g-col>1</g-col>-->
+<!--            </g-row>-->
+<!--        </g-col>-->
+<!--        <g-col span="20">-->
+<!--            <g-row align="center">-->
+<!--                <g-col>1</g-col>-->
+<!--                <g-col>1</g-col>-->
+<!--                <g-col>1</g-col>-->
+<!--                <g-col>1</g-col>-->
+<!--                <g-col>1</g-col>-->
+<!--            </g-row>-->
+<!--        </g-col>-->
+<!--        <g-col span="20">-->
+<!--            <g-row align="right">-->
+<!--                <g-col>1</g-col>-->
+<!--                <g-col>1</g-col>-->
+<!--                <g-col>1</g-col>-->
+<!--                <g-col>1</g-col>-->
+<!--                <g-col>1</g-col>-->
+<!--            </g-row>-->
+<!--        </g-col>-->
+<!--    </g-row>-->
+<!--    <div class="box">-->
+<!--        <g-button :loading="loading1" @click="loading1=!loading1">按钮</g-button>-->
+<!--        <g-button icon="thumbs-up" icon-position="right" :loading="loading2" @click="loading2=!loading2">按钮</g-button>-->
+<!--        <g-button icon="setting" :loading="loading3" @click="loading3=!loading3">按钮</g-button>-->
+<!--        <g-icon name="download"></g-icon>-->
+<!--        <g-button-group>-->
+<!--            <g-button icon="left">上一页</g-button>-->
+<!--            <g-button>更多</g-button>-->
+<!--            <g-button icon="right">下一页</g-button>-->
+<!--        </g-button-group>-->
+<!--    </div>-->
+<!--    <div class="box">-->
+<!--    <g-input value="张三" @change="inputChange"></g-input>-->
+<!--    <g-input v-model="message"></g-input>-->
+<!--        <p>{{message}}</p>-->
+<!--    <g-input value="禁用" disabled></g-input>-->
+<!--    <g-input value="不能修改" readonly></g-input>-->
+<!--    </div>-->
+<!--    <div class="box">-->
+<!--    <g-input value="张" error="姓名不能少于两个字"></g-input>-->
+<!--    </div>-->
 </div>
 <!--引入vue-gulu组件-->
 <script src="./src/app.js"></script>
