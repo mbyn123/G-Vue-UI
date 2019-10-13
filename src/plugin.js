@@ -6,17 +6,25 @@ export default {
             if(currentToast){
                 currentToast.close()
             }
-            currentToast=createToast({Vue,message,propsData:toastOptions})
+            currentToast=createToast({
+                Vue,
+                message,
+                propsData:toastOptions,
+                onClose:()=>{
+                currentToast=null
+                }
+            })
         }
      }
 }
 
 //创建一个toast组件
-function createToast({Vue,message,propsData}){
+function createToast({Vue,message,propsData,onClose}){
     let Constructor = Vue.extend(Toast)//继承toast组件
     let toast = new Constructor({propsData})//创建一个构造函数,创建一个toast对象
     toast.$slots.default=[message]
     toast.$mount()
+    toast.$on('close',onClose)
     document.body.appendChild(toast.$el)//生成一个toast组件放入body中
     return toast
 }

@@ -48,7 +48,7 @@ new Vue({
           //调用toast组件,向组件中传入提示信息,和关闭按钮的名称以及点击按钮后的回调函数
           this.$toast(`你的幸运数字是${parseInt(Math.random()*100)}`,{
               enadleHtml:false,
-              position:'middle',
+              position:'top',
               autoClose:true,
               autoCloseDelay:30,
               closeButton: {
