@@ -2,7 +2,7 @@
     <div class="toast">
         <slot></slot>
         <div class="line"></div>
-        <span v-if="closeButton">{{closeButton.text}}</span>
+        <span v-if="closeButton" @click="clickClose">{{closeButton.text}}</span>
     </div>
 </template>
 
@@ -15,7 +15,7 @@
             },
             autoCloseDelay:{//自动消失的时间
                 type:Number,
-                default:3
+                default:30
             },
             closeButton:{//点击消失的按钮
                 type:Object,
@@ -34,6 +34,10 @@
             close(){//将内容从页面删除
                 this.$el.remove()
                 this.$destroy()
+            },
+            clickClose(){
+                this.close()
+                this.closeButton.callback()
             }
         },
         mounted(){
