@@ -35,7 +35,7 @@
                 type:String,
                 default:'top',
                 validator(value){
-                   return ['top','bottom','middle'].indexOf(value)>0
+                   return ['bottom','middle'].indexOf(value)>=0
                 }
             }
 
