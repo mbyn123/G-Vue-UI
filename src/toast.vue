@@ -1,8 +1,9 @@
 <template>
-    <div class="toast">
-        <slot></slot>
-        <div class="line"></div>
-        <span v-if="closeButton" @click="clickClose">{{closeButton.text}}</span>
+    <div class="toast" ref="toast">
+        <slot v-if="!enadleHtml"></slot><!--不支持html书写提示信息-->
+        <div v-else  v-html="$slots.default[0]"></div><!--支持html书写提示信息-->
+        <div class="line" ref="line"></div>
+        <span class="close" v-if="closeButton" @click="clickClose">{{closeButton.text}}</span>
     </div>
 </template>
 
@@ -13,32 +14,24 @@
                 type:Boolean,
                 default:true
             },
-            autoCloseDelay:{//自动消失的时间
+            autoCloseDelay:{//提示信息自动消失的时间
                 type:Number,
                 default:30
             },
-            closeButton:{//点击消失的按钮
+            closeButton:{//提示消息中的点击的按钮
                 type:Object,
                 default(){
                     return{
-                        text:'关闭',
-                        callback:(toast)=>{
-                            toast.close()
-                        }
+                        text:'关闭',//按钮的默认名称
+                        callback:undefined
                     }
                 }
+            },
+            enadleHtml:{//默认不支持提示信息使用自定义的html编写
+                type:Boolean,
+                default:false
             }
 
-        },
-        methods:{
-            close(){//将内容从页面删除
-                this.$el.remove()
-                this.$destroy()
-            },
-            clickClose(){
-                this.close()
-                this.closeButton.callback()
-            }
         },
         mounted(){
             if(this.autoClose){//5秒后自动从页面删除
@@ -46,7 +39,31 @@
                     this.close()
                 },this.autoCloseDelay*1000)
             }
+            this.ss()
         },
+        methods:{
+            ss(){
+                this.$nextTick(()=>{//解决line无法获取父级元素高度的问题
+                    this.$refs.line.style.height=`${this.$refs.toast.getBoundingClientRect().height}px`
+                })
+
+            },
+            close(){//将内容从页面删除
+                this.$el.remove()
+                this.$destroy()
+            },
+            log(){
+                console.log('测试')
+            },
+            clickClose(){//点击提示信息按钮
+                this.close()//关闭提示信息
+                if(this.closeButton && typeof this.closeButton.callback==='function'){//判断用户是否有传入回调函数
+                    this.closeButton.callback(this)//如果用户有传入回调函数,就调用该函数
+                }                            //this代表当前toast实例,可以传递出去让外部调用toast实例的方法
+
+            }
+        },
+
     }
 </script>
 
@@ -57,7 +74,7 @@
     .toast{
         font-size: $font-size;
         line-height: 1.8;
-        height: $toast-height;
+        min-height: $toast-height;
         position: fixed;
         top: 0;
         left: 50%;
@@ -69,10 +86,15 @@
         box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.50);
         color: #fff;
         padding: 0 16px;
+        .line{
+            min-height:100%;
+            border:1px solid #666;
+            margin:0 8px;
+
+        }
+        .close{
+            flex-shrink: 0;
+        }
     }
-    .line{
-        height:100%;
-        border:1px solid #666;
-        margin:0 8px;
-    }
+
 </style>

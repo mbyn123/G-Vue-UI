@@ -38,12 +38,26 @@ new Vue({
         loading3:false,
         message:'hi'
     },
+    created(){
+        //调用toast组件,向组件中传入提示信息,和关闭按钮的名称以及点击按钮后的回调函数
+        this.$toast('<a style="color: #F1453D" href="http://qq.com">hihihihihiihiihhhhhhhhhhhhhhhhhhhhhhh</a>',{
+            enadleHtml:true,
+            closeButton: {
+                text:'关闭55555555555',
+                callback(toast){
+                    toast.log()//toast可以接受toast组件内的方法log
+                    console.log('用户说他知道了')
+                }
+            }
+        })
+
+    },
     methods:{
       inputChange(e){
           console.log(e.target.value)
       },
       showToast(){
-          this.$toast('我是message')
+
       }
 
     },
