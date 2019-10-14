@@ -1,5 +1,5 @@
 <template>
-<div class="tabs-item" @click="xxx" :class="classes">
+<div class="tabs-item" @click="clickItem" :class="classes">
     <slot></slot>
 </div>
 </template>
@@ -36,12 +36,14 @@
         computed:{
             classes(){
                 return{
-                    active:this.active//实时监听active的值
+                    active:this.active,//实时监听active 点击切换的值
+                    disabled:this.disabled//实时监听disabled 禁用组件的值
                 }
             }
         },
         methods:{
-            xxx(){
+            clickItem(){
+                if(this.disabled){return}//禁用当前组件
                 this.eventBus.$emit('updata:selected',this.name,this)
             }
         }
@@ -60,7 +62,9 @@
         font-weight:bold ;
         &.active{
             color:$blue;
-
+        }
+        &.disabled{
+            color:#999999 ;
         }
     }
 
