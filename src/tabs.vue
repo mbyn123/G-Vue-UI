@@ -30,11 +30,11 @@
                           //eventBus总线触发事件,selected表示当前有tab页被选中了，为了实现切换效果
                           // item表示确定当前被选定的组件的位置，为了实现下划线滑动动画
                           this.eventBus.$emit('updata:selected',this.selected,childVm)
-                          console.log(childVm.$el);
                       }
                     })
                 }
             })
+
 
         },
         data(){

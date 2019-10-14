@@ -13,8 +13,13 @@
     export default {
         name: "tabs-head",
         inject:['eventBus'],//接收依赖
-        created(){
+        mounted(){
+            this.eventBus.$on('updata:selected',(item,vm)=>{
+            let{width,height,top,left}=vm.$el.getBoundingClientRect()//获取当前组件的宽度，左边距
+                this.$refs.line.style.width=`${width}px`
+                this.$refs.line.style.left=`${left}px`
 
+            })
         }
     }
 </script>
@@ -27,15 +32,19 @@
         justify-content: flex-start;
         height:$tab-height;
         position: relative;
+        border-bottom: 1px solid #999999;
         >.actions-waraap{
            margin-left: auto;
+            display: flex;
+            align-items: center;
+            padding-right: 2em;
         }
         >.line{
             position: absolute;
             bottom:0;
-            width:100px;
             height: 3px;
             background: $blue;
+            transition: all 350ms;
         }
 
     }

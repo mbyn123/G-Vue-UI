@@ -42,7 +42,7 @@
         },
         methods:{
             xxx(){
-                this.eventBus.$emit('updata:selected',this.name)
+                this.eventBus.$emit('updata:selected',this.name,this)
             }
         }
     }
@@ -57,9 +57,10 @@
         height:100%;
         display: flex;
         align-items: center;
+        font-weight:bold ;
         &.active{
             color:$blue;
-            font-weight:bold ;
+
         }
     }
 
