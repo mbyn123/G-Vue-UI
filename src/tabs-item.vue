@@ -20,14 +20,14 @@
         },
         data(){
             return{
-                active:false
+                active:false//默认active为false,不显示
             }
         },
         inject:['eventBus'],//接收依赖
         created(){
             this.eventBus.$on('updata:selected',(name)=>{//子组件监听总线触发的事件,发出响应
                 if(name===this.name){
-                    this.active=true
+                    this.active=true//被选中的时候，为true
                 }else{
                     this.active=false
                 }
@@ -36,7 +36,7 @@
         computed:{
             classes(){
                 return{
-                    active:this.active
+                    active:this.active//实时监听active的值
                 }
             }
         },
@@ -52,6 +52,10 @@
     .tabs-item{
         flex-shrink: 0;
         padding: 0 2em;
+        cursor: pointer;
+        height:100%;
+        display: flex;
+        align-items: center;
         &.active{
             background: #F1453D;
         }

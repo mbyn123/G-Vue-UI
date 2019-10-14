@@ -21,7 +21,6 @@
     $tab-height:40px;
     .tabs-head{
         display: flex;
-        align-items: center;
         justify-content: flex-start;
         height:$tab-height;
         border:1px solid red;
