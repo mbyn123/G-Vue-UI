@@ -6,7 +6,10 @@
 
 <script>
     export default {
-        name: "tabs-body"
+        name: "tabs-body",
+        inject:['eventBus'],//接收依赖
+        created(){
+        }
     }
 </script>
 

@@ -7,7 +7,11 @@
 
 <script>
     export default {
-        name: "tabs-head"
+        name: "tabs-head",
+        inject:['eventBus'],//接收依赖
+        created(){
+
+        }
     }
 </script>
 

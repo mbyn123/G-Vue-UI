@@ -6,7 +6,13 @@
 
 <script>
     export default {
-        name: "tabs-pane"
+        name: "tabs-pane",
+        inject:['eventBus'],//接收依赖
+        created(){
+            this.eventBus.$on('updata:selected',(name)=>{
+                console.log(name)
+            })
+        }
     }
 </script>
 
