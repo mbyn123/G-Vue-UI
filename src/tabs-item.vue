@@ -1,5 +1,5 @@
 <template>
-<div class="tabs-item" @click="xxx">
+<div class="tabs-item" @click="xxx" :class="classes">
     <slot></slot>
 </div>
 </template>
@@ -18,11 +18,27 @@
             }
 
         },
+        data(){
+            return{
+                active:false
+            }
+        },
         inject:['eventBus'],//接收依赖
         created(){
-            this.eventBus.$on('updata:selected',(name)=>{
-                console.log(name)
+            this.eventBus.$on('updata:selected',(name)=>{//子组件监听总线触发的事件,发出响应
+                if(name===this.name){
+                    this.active=true
+                }else{
+                    this.active=false
+                }
             })
+        },
+        computed:{
+            classes(){
+                return{
+                    active:this.active
+                }
+            }
         },
         methods:{
             xxx(){
@@ -32,6 +48,13 @@
     }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+    .tabs-item{
+        flex-shrink: 0;
+        padding: 0 2em;
+        &.active{
+            background: #F1453D;
+        }
+    }
 
 </style>

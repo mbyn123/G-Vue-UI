@@ -21,8 +21,8 @@
                 }
             }
         },
-        created() {
-            // this.$emit('updata:selected','xxx')
+        mounted() {
+            this.eventBus.$emit('updata:selected',this.selected)//eventBus总线触发事件,表示当前有tab页被选中了
         },
         data(){
             return{

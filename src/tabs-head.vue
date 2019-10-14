@@ -1,7 +1,9 @@
 <template>
 <div class="tabs-head">
     <slot></slot>
+    <div class="actions-waraap">
     <slot name="actions"></slot>
+    </div>
 </div>
 </template>
 
@@ -15,6 +17,18 @@
     }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+    $tab-height:40px;
+    .tabs-head{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        height:$tab-height;
+        border:1px solid red;
+        >.actions-waraap{
+           margin-left: auto;
+        }
+
+    }
 
 </style>
