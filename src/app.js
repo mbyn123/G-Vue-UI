@@ -13,6 +13,11 @@ import Content from './content'
 import Footer from './footer'
 import Toast from './toast'
 import Plugin from './plugin'
+import Tabs from './tabs'
+import TabsBody from './tabs-body'
+import TabsHead from './tabs-head'
+import TabsItem from './tabs-item'
+import TabsPane from './tabs-pane'
 
 //注册全局组件
 Vue.component('g-button',Button)
@@ -28,6 +33,12 @@ Vue.component('g-content',Content)
 Vue.component('g-footer',Footer)
 Vue.component('g-toast',Toast)
 Vue.use(Plugin)
+Vue.component('g-tabs',Tabs)
+Vue.component('g-tabs-body',TabsBody)
+Vue.component('g-tabs-item',TabsItem)
+Vue.component('g-tabs-head',TabsHead)
+Vue.component('g-tabs-pane',TabsPane)
+
 
 
 new Vue({
