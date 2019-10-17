@@ -63,8 +63,8 @@
         &.active{
             color:$blue;
         }
-        &.disabled{
-            color:#999999 ;
+        &.disabled {
+            color: #999999;
         }
     }
 
