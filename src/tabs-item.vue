@@ -1,7 +1,8 @@
+
 <template>
-<div class="tabs-item" @click="clickItem" :class="classes">
-    <slot></slot>
-</div>
+    <div class="tabs-item" @click="clickItem" :class="classes">
+        <slot></slot>
+    </div>
 </template>
 
 <script>
@@ -16,7 +17,6 @@
                 type:String|Number,
                 required:true
             }
-
         },
         data(){
             return{
@@ -52,20 +52,21 @@
 
 <style scoped lang="scss">
     $blue:#39f;;
-    .tabs-item{
+    $disabled-text-color: grey;
+    .tabs-item {
         flex-shrink: 0;
-        padding: 0 2em;
+        padding: 0 1em;
         cursor: pointer;
-        height:100%;
+        height: 100%;
         display: flex;
         align-items: center;
-        font-weight:bold ;
-        &.active{
-            color:$blue;
+        &.active {
+            color: $blue;
+            font-weight: bold;
         }
         &.disabled {
-            color: #999999;
+            color: $disabled-text-color;
+            cursor: not-allowed;
         }
     }
-
 </style>
