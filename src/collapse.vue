@@ -39,8 +39,10 @@
 
 <style scoped lang="scss">
     .collapse{
-        border:1px solid #ccc;
+        border:1px solid #999;
         border-radius: 4px;
+        cursor: pointer;
+
     }
 
 </style>

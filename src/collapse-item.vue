@@ -62,7 +62,8 @@
 <style scoped lang="scss">
     .collapseItem{
       >.title{
-          border:1px solid #ccc;
+          border:1px solid #999;
+          background: #f7f7f7;
           margin-top: -1px;
           margin-left: -1px;
           margin-right: -1px;
@@ -78,7 +79,8 @@
             }
         }
       >.content{
-          padding:8px
+          padding:8px;
+          background:#ffffff;
       }
     }
 

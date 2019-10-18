@@ -33,26 +33,34 @@
 </script>
 
 <style scoped lang="scss">
+    $font-size:14px;
+    $button-height:32px;
+    $button-bg:#fff;
+    $button-active-bg:#eee;
+    $border-radius:4px;
+    $color:#333;
+    $border-color:#999;
+    $border-color-hover:#666;
     @keyframes spin {
         0%{transform: rotate(0deg)}
         100%{transform: rotate(360deg)}
     }
     .g-button {
-        font-size: var(--font-size);
-        height: var(--button-height);
+        font-size: $font-size;
+        height: $button-height;
         padding: 0 1em; /* 宽度不写死*/
-        border: 1px solid var(--border-color);
-        border-radius: var(--border-radius);
-        background: var(--button-bg);
+        border: 1px solid $border-color;
+        border-radius: $border-radius;
+        background: $button-bg;
         display: inline-flex;
         justify-content: center;
         align-items: center;
         vertical-align: middle;
         &:hover {
-            bordr-color: var(--border-color-hover)
+            bordr-color: $border-color-hover
         }
         &:active {
-            background: var(--button-active-bg)
+            background: $button-active-bg
         }
         &:focus {
             outline: none

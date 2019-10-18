@@ -11,7 +11,7 @@ import Header from './header'
 import Sider from './sider'
 import Content from './content'
 import Footer from './footer'
-import Toast from './toast'
+// import Toast from './toast'
 import Plugin from './plugin'
 import Tabs from './tabs'
 import TabsBody from './tabs-body'
@@ -34,7 +34,7 @@ Vue.component('g-header',Header)
 Vue.component('g-sider',Sider)
 Vue.component('g-content',Content)
 Vue.component('g-footer',Footer)
-Vue.component('g-toast',Toast)
+// Vue.component('g-toast',Toast)
 Vue.use(Plugin)
 Vue.component('g-tabs',Tabs)
 Vue.component('g-tabs-body',TabsBody)
@@ -49,34 +49,34 @@ Vue.component('g-collapse-item',CollapseItem)
 new Vue({
     el:'#app',
     data:{
-        loading1:false,
-        loading2:true,
-        loading3:false,
-        message:'hi',
-        selected:'2'
+        // loading1:false,
+        // loading2:true,
+        // loading3:false,
+        // message:'hi',
+        // selected:'2'
     },
     created(){
     },
     methods:{
-      inputChange(e){
-          console.log(e.target.value)
-      },
-      showToast(){
-          //调用toast组件,向组件中传入提示信息,和关闭按钮的名称以及点击按钮后的回调函数
-          this.$toast(`你的幸运数字是${parseInt(Math.random()*100)}`,{
-              enadleHtml:false,
-              position:'top',
-              autoClose:true,
-              autoCloseDelay:30,
-              closeButton: {
-                  text:'知道了',
-                  callback(toast){
-                      toast.log()//toast可以接受toast组件内的方法log
-                      console.log('用户说他知道了')
-                  }
-              }
-          })
-      }
+      // inputChange(e){
+      //     console.log(e.target.value)
+      // },
+      // showToast(){
+      //     //调用toast组件,向组件中传入提示信息,和关闭按钮的名称以及点击按钮后的回调函数
+      //     this.$toast(`你的幸运数字是${parseInt(Math.random()*100)}`,{
+      //         enadleHtml:false,
+      //         position:'top',
+      //         autoClose:true,
+      //         autoCloseDelay:30,
+      //         closeButton: {
+      //             text:'知道了',
+      //             callback(toast){
+      //                 toast.log()//toast可以接受toast组件内的方法log
+      //                 console.log('用户说他知道了')
+      //             }
+      //         }
+      //     })
+      // }
 
     },
 

@@ -33,13 +33,14 @@
                 type: Boolean,
                 default: false
             },
-            position: {//设置toast出现的位置
+            position: {
                 type: String,
                 default: 'top',
-                validator(value) {
-                    return ['bottom', 'middle'].indexOf(value) >= 0
+                validator (value) {
+                    return ['top', 'bottom', 'middle'].indexOf(value) >= 0
                 }
-            }
+
+        },
 
         },
         mounted() {
@@ -125,6 +126,7 @@
         position: fixed;
         left: 50%;
         transform: translateX(-50%);
+        z-index: 999;
         &.position-top {
             top: 0;
             transform: translateX(-50%);

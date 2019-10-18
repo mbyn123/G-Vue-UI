@@ -1,5 +1,5 @@
 <template>
-<div class="tabs-head">
+<div class="tabs-head" ref="head">
     <slot></slot>
     <div class="line" ref="line"></div>
     <div class="actions-waraap">
@@ -16,8 +16,9 @@
         mounted(){
             this.eventBus.$on('updata:selected',(item,vm)=>{
             let{width,height,top,left}=vm.$el.getBoundingClientRect()//获取当前组件的宽度，左边距
+            let {left: left2} = this.$refs.head.getBoundingClientRect()
                 this.$refs.line.style.width=`${width}px`
-                this.$refs.line.style.left=`${left}px`
+                this.$refs.line.style.left = `${left - left2}px`
 
             })
         }
