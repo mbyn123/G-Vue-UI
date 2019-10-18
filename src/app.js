@@ -34,7 +34,7 @@ Vue.component('g-header',Header)
 Vue.component('g-sider',Sider)
 Vue.component('g-content',Content)
 Vue.component('g-footer',Footer)
-// Vue.component('g-toast',Toast)
+
 Vue.use(Plugin)
 Vue.component('g-tabs',Tabs)
 Vue.component('g-tabs-body',TabsBody)

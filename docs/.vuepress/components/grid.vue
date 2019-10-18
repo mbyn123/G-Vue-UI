@@ -394,10 +394,11 @@
     }
     .demoRow{
         margin: 10px 0;
+         border: 1px solid #eee;
+       
     }
     .demoCol {
         height: 50px;
-        border: 1px solid #39f;
         background: #fff;
         display: flex;
         justify-content: center;

@@ -6,8 +6,9 @@
             <strong>预览</strong>
         </p>
         <g-input value="中文"></g-input>
-        <g-input value="中文" disabled></g-input>
-        <g-input value="中文" readonly></g-input>
+        <g-input value="禁用" disabled></g-input>
+        <g-input value="不能修改" readonly></g-input>
+        <g-input value="错误" error="出错啦"></g-input>
 
         <p>
             <strong>代码</strong>
@@ -26,6 +27,7 @@
             <strong>代码</strong>
         </p>
         <pre><code>{{content2}}</code></pre>
+
     </div>
 </template>
 <script>
@@ -36,10 +38,10 @@
             return {
                 selected: '1',
                 content: `
-          <g-input></g-input>
-          <g-input value="中文"></g-input>
-          <g-input value="中文" disabled></g-input>
-          <g-input value="中文" readonly></g-input>
+        <g-input value="中文"></g-input>
+        <g-input value="禁用" disabled></g-input>
+        <g-input value="不能修改" readonly></g-input>
+        <g-input value="错误" error="出错啦"></g-input>
       `,
                 value: '1',
                 content2: `
